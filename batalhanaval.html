@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha Naval</title>
+   
+    <style>
+        img{
+            height: 50px;
+            width: 50px;
+        }
+ 
+    </style>
+ 
+    <script>
+ 
+        function atirar (linha, coluna, imgElement){
+            imgElement.src= imagens[arrayEmbaralhado[linha][coluna]];
+        }
+
+        const imagens = {
+            "o": "img/Wave.png",
+            "b": "img/bomba.png",
+            "1": "img/Ship-1.png",
+            "2": "img/Ship-2.png",
+            "3": "img/Ship-3.png",
+        }
+
+        let position = [
+            ["1", "o", "o", "3", "o", "o", "b", "o", "o", "3"],
+            ["o", "o", "o", "o", "b", "o", "o", "o", "o", "o"],
+            ["o", "o", "o", "o", "o", "3", "o", "o", "b", "2"],
+            ["2", "b", "2", "o", "o", "o", "o", "1", "o", "o"],
+            ["o", "o", "o", "1", "2", "b", "o", "o", "o", "o"],
+            ["3", "o", "o", "b", "o", "o", "o", "o", "o", "b"],
+            ["o", "o", "1", "o", "o", "o", "1", "o", "o", "o"],
+            ["o", "o", "o", "o", "o", "o", "o", "o", "o", "o"],
+            ["b", "2", "b", "o", "o", "o", "o", "o", "b", "2"],
+            ["o", "o", "o", "o", "o", "o", "o", "3", "o", "o"]
+        ];
+
+        const arrayEmbaralhado = position =>{
+            let arrayEmbaralhado = position.flat().sort((i, j) =>Math.random() - 0.5);
+        }
+            
+        document.write("<table style='border-collapse: collapse'>")
+            for (i=0; i<=9; i++){
+                document.write("<tr>")
+                for (j=0; j<=9; j++){;
+                document.write("<td style='border:1px solid black'><img class=tiro src='img/Fire-icon.png' onclick='atirar("+i+","+j+", this)'></td>")
+            }
+            document.write("</tr>")
+            }
+        document.write("</table>")
+    </script>
+ 
+</head>
+<body>
+</body>
+</html>
+ 
